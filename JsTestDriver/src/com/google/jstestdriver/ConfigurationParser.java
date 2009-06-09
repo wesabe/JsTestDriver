@@ -23,6 +23,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -95,6 +96,8 @@ public class ConfigurationParser {
             		" the configuration file.");
             System.exit(1);
           }
+          
+          Arrays.sort(filteredFiles, String.CASE_INSENSITIVE_ORDER);
           String normalizedBasePath =
               basePath != null ? basePath.getPath().replaceAll("\\\\", "/") + "/" : "";
           for (String filteredFile : filteredFiles) {
